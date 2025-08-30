@@ -2,12 +2,13 @@
 
 > Not a package. Not a guide. Just me being curious about how one could get **explicit** Nédélec basis functions with **Symbolics.jl** tools in Julia.
 
-The expressions seem to make sense (compared against [DefElement: Nédélec 1](https://defelement.org/elements/nedelec1.html)), but I’m only have user-level knowledge of FEM, so I cannot guarantee that they are correct. You can interpret this simply as notes I took while studying the subject.
+The expressions seem to make sense (compared against [DefElement: Nédélec 1](https://defelement.org/elements/nedelec1.html)), but I’m only have user-level knowledge of FEM, so **I cannot guarantee that they are correct**. You can interpret this simply as notes I took while studying the subject.
 
+If you notice any errors, please let me know, as there may be something I haven't noticed or haven't understood correctly.
 
 # Why?
 
-Just for fun. I was curious to see what I could do with symbolic computation, and I took the opportunity to explore a topic I didn't know much about.
+I was curious to see what I could do with symbolic computation, and I took the opportunity to explore a topic I didn't know much about.
 
 I know that FEM libraries like deal.II or Gridap don't use explicit expressions but more flexible approaches for different element types and refinements. 
 
@@ -33,7 +34,7 @@ where:
 
 
 
-  with $\tilde{\mathcal{P}}_k^d$ the homogeneous vector polynomials of degree $k$.
+  with $\tilde{\mathcal{P}}_k^d$ the vector polynomials of degree $k$.
 
 2. **Symbolic Representation**  
 
@@ -48,6 +49,8 @@ $$
 3. **Moment Calculation**  
 
 Compute **moments** (degrees of freedom) symbolically:
+
+> I have chosen these types of polynomials, but it is possible to use others as long as they belong to the corresponding spaces.
 
 **Edges:** For each edge, the tangential component is integrated against **Legendre polynomials**.
 
@@ -65,7 +68,6 @@ For a face $f$ of the reference triangle, using a Dubiner polynomial $D_{mn}(s,t
 
 where $\mathbf{q}$ is an appropriate test direction.
 
-** I have chosen these types of polynomials, but it is possible to use others as long as they belong to the corresponding spaces. **
 
 4. **System Solving**  
 
