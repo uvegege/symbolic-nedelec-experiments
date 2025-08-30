@@ -88,6 +88,7 @@ Substitute the solved coefficients $\mathbf{c}$ back into the polynomial space t
 For example, `N1k(0)` computes the Degree 0 Nèdelec of first kind on a triangle.
 
 ```julia
+include("./symbolic-nedelec-experiments.jl")
 N0 = N1k(0)
 
 julia> N0 = N1k(0)
