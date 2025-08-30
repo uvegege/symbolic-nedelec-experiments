@@ -1,7 +1,5 @@
 """
-
 Generate all the monomials of degree <= k
-
 """
 function generar_monomios(x, k)
     dims = length(x)
